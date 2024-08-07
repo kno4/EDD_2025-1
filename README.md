@@ -1,2 +1,4 @@
 # EDD_2025-1
- Repositorio para la materia de Estructura de Datos
+## Enrique Emiliano Cano García
+## Grupo: 1360
+
