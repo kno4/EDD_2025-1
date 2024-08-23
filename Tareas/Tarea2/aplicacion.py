@@ -1,4 +1,4 @@
-from Tareas.Tarea2.tarea2 import ConjuntoADT
+from Tareas.Tarea2.conjuntoADT import ConjuntoADT
 
 def main():
     # Crear tres conjuntos con diferentes tipos de datos
