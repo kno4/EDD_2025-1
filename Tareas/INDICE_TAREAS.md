@@ -4,5 +4,5 @@
 ### TAREAS
 [Tarea 1](https://github.com/kno4/EDD_2025-1/tree/main/Tareas/Tarea1)
 
-[Tarea 2]()
+[Tarea 2](https://github.com/kno4/EDD_2025-1/tree/main/Tareas/Tarea2)
 
