@@ -19,7 +19,6 @@ def main():
 
     nuevo_smartphone = SmartPhone("Sony", "Xperia 5", 899)
     lista_smartphones.actualizar(1, nuevo_smartphone)
-
     print("\nContenido después de actualizar el segundo elemento:")
     lista_smartphones.transversal()
 
