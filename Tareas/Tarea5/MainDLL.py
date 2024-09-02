@@ -3,7 +3,6 @@ from Tareas.Tarea5.DoubleLinkedList import DoubleLinkedList
 
 def main():
     lista = DoubleLinkedList()
-
     lista.agregar_al_inicio(50)
     lista.agregar_al_final(60)
     lista.agregar_al_final(65)
