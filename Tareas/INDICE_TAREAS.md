@@ -15,3 +15,5 @@
 [Tarea 6](https://github.com/kno4/EDD_2025-1/tree/main/Tareas/Tarea6)
 
 [Tarea 7](https://github.com/kno4/EDD_2025-1/tree/main/Tareas/Tarea7)
+
+[Tarea 8](https://github.com/kno4/EDD_2025-1/tree/main/Tareas/Tarea8)
