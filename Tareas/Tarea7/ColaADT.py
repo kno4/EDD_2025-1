@@ -25,3 +25,6 @@ class ColaADT:
         if self.esta_vacia():
             return "Cola vacía"
         return "Cola: " + " <- ".join(map(str, self.cola))
+
+    def __str__(self):
+        return ', '.join([str(elemento) for elemento in self.cola]) if self.cola else "Cola vacía"
