@@ -14,7 +14,7 @@ def main():
 
     lista_smartphones.eliminar(2)
 
-    print("\nContenido después de eliminar el nodo en la posición 2:")
+    print("\nContenido después de eliminar el nodo_actual en la posición 2:")
     lista_smartphones.transversal()
 
     nuevo_smartphone = SmartPhone("Sony", "Xperia 5", 899)
@@ -30,7 +30,7 @@ def main():
 
     lista_smartphones.eliminar(0)
 
-    print("\nContenido después de eliminar el primer nodo:")
+    print("\nContenido después de eliminar el primer nodo_actual:")
     lista_smartphones.transversal()
 
 

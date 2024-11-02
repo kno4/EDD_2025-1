@@ -37,7 +37,7 @@ class ListaLigada:
         return contador
 
     def agregar_despues_de(self, ref, nuevo_dato):
-        # Buscar el nodo con el dato `nodo_anterior_dato`
+        # Buscar el nodo_actual con el dato `nodo_anterior_dato`
         aux = self._cabeza
         while aux is not None:
             if aux.get_dato() == ref:
@@ -47,7 +47,7 @@ class ListaLigada:
         if aux is None:
             print(f"Nodo con dato '{ref}' no encontrado.")
         else:
-            # Crear el nuevo nodo y ajustar los punteros
+            # Crear el nuevo nodo_actual y ajustar los punteros
             nuevo_nodo = Nodo(nuevo_dato)
             nuevo_nodo.set_siguiente(aux.get_siguiente())
             aux.set_siguiente(nuevo_nodo)
@@ -98,7 +98,7 @@ class ListaLigada:
 
     def eliminar_primero(self, dato):
             if self.esta_vacia():
-                print("La lista está vacía, no se puede eliminar el primer nodo.")
+                print("La lista está vacía, no se puede eliminar el primer nodo_actual.")
                 return
 
             self._cabeza = self._cabeza.get_siguiente()
@@ -106,14 +106,14 @@ class ListaLigada:
 
     def eliminar_ultimo(self):
         if self.esta_vacia():
-            print("La lista está vacía, no se puede eliminar el último nodo.")
+            print("La lista está vacía, no se puede eliminar el último nodo_actual.")
             return
 
-        #cuando solo haya un nodo y sea la cabeza
+        #cuando solo haya un nodo_actual y sea la cabeza
         if self._cabeza.get_siguiente() is None:
             self._cabeza = None
         else:
-            #Recorre la lista hasta encontrar el penúltimo nodo
+            #Recorre la lista hasta encontrar el penúltimo nodo_actual
             aux = self._cabeza
             while aux.get_siguiente().get_siguiente() is not None:
                 aux = aux.get_siguiente()
