@@ -25,18 +25,17 @@ class ABB:
         else:
             print("Este libro ya ha sido agregado")
 
-    def buscar(self, valor):
-        return self._buscar(valor, self.raiz)
-
-    def _buscar(self, nodo_actual, valor):
+    def buscar(self, libro):
+        return self._buscar(self.raiz, libro.id)
+    def _buscar(self, nodo_actual, id_libro):
         if nodo_actual is None:
             return False
-        elif valor == nodo_actual.valor:
+        elif id_libro == nodo_actual.valor.id:
             return True
-        elif valor < nodo_actual.valor:
-            return self._buscar(nodo_actual.izquierdo, valor)
+        elif id_libro < nodo_actual.valor.id:
+            return self._buscar(nodo_actual.izquierdo, id_libro)
         else:
-            return self._buscar(nodo_actual.derecho, valor)
+            return self._buscar(nodo_actual.derecho, id_libro)
 
     def recorrer_en_orden(self):
         elementos = []
@@ -52,25 +51,26 @@ class ABB:
     def eliminar(self, valor):
         self.raiz = self._eliminar(self.raiz, valor)
 
-    def _eliminar(self, nodo, valor):
+    def _eliminar(self, nodo, id_libro):
         if nodo is None:
             return nodo
 
-        if valor < nodo.valor:
-            nodo.izquierdo = self._eliminar(nodo.izquierdo,valor)
-        elif valor > nodo.valor:
-            nodo.derecho = self._eliminar(nodo.derecho,valor)
+        if id_libro < nodo.valor.id:  # Comparar por ID del libro
+            nodo.izquierdo = self._eliminar(nodo.izquierdo, id_libro)
+        elif id_libro > nodo.valor.id:  # Comparar por ID del libro
+            nodo.derecho = self._eliminar(nodo.derecho, id_libro)
         else:
-             if nodo.izquierdo is None and nodo.derecho is None:
-                 return nodo
-             if nodo.izquierdo is None:
-                 return nodo.derecho
-             if nodo.derecho is None:
-                 return nodo.izquierdo
+            # Nodo encontrado, proceder con eliminación
+            if nodo.izquierdo is None and nodo.derecho is None:
+                return None
+            if nodo.izquierdo is None:
+                return nodo.derecho
+            if nodo.derecho is None:
+                return nodo.izquierdo
 
-             sucesor = self._encontrar_min(nodo.derecho)
-             nodo.valor = sucesor.valor
-             nodo.derecho = self._eliminar(nodo.derecho, sucesor.valor)
+            sucesor = self._encontrar_min(nodo.derecho)
+            nodo.valor = sucesor.valor
+            nodo.derecho = self._eliminar(nodo.derecho, sucesor.valor.id)  # Corregir aquí también
         return nodo
 
     @staticmethod
@@ -89,3 +89,17 @@ class ABB:
             self._en_orden(nodo_actual.izquierdo, elementos)
             elementos.append(nodo_actual.valor)
             self._en_orden(nodo_actual.derecho, elementos)
+
+    def imprimir_arbol(self, nodo=None, nivel=0, prefijo="Raíz: "):
+        nodo = nodo or self.raiz
+        if nodo is not None:
+            print(" " * (nivel * 4) + prefijo + str(nodo.valor))
+            if nodo.izquierdo is not None or nodo.derecho is not None:
+                if nodo.izquierdo:
+                    self.imprimir_arbol(nodo.izquierdo, nivel + 1, "Izq: ")
+                else:
+                    print(" " * ((nivel + 1) * 4) + "Izq: None")
+                if nodo.derecho:
+                    self.imprimir_arbol(nodo.derecho, nivel + 1, "Der: ")
+                else:
+                    print(" " * ((nivel + 1) * 4) + "Der: None")

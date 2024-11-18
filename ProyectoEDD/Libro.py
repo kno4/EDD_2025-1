@@ -16,4 +16,4 @@ class Libro:
         return self.id == other.id
 
     def __str__(self):
-        return f"{self.titulo} DE {self.autor}; PRECIO: {self.precio}, CANTIDAD EN STOCK: {self.stock}"
+        return f"ID:{self.id} TÍTULO {self.titulo} DE {self.autor}; PRECIO: {self.precio}, CANTIDAD EN STOCK: {self.stock}"
