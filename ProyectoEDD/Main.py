@@ -6,12 +6,12 @@ from ProyectoEDD.ABB import ABB
 class LibreriaGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Biblioteca")
+        self.root.title("Librería Kno")
         self.root.geometry("850x700")
         self.root.configure(bg="#e9f5fb")
 
         #Título
-        ttk.Label(self.root, text="Gestión de Biblioteca", font=("Helvetica", 24, "bold"), background="#e9f5fb", foreground="#0077b6").pack(pady=20)
+        ttk.Label(self.root, text="Gestión de Librería", font=("Helvetica", 24, "bold"), background="#e9f5fb", foreground="#0077b6").pack(pady=20)
 
         #Creación de etiquetas y formularios
         form_frame = ttk.LabelFrame(self.root, text="Información del Libro", padding=(20, 10), style="Custom.TLabelframe")
@@ -23,17 +23,17 @@ class LibreriaGUI:
         ttk.Label(form_frame, text="Stock:", style="Custom.TLabel").grid(row=3, column=0, sticky="w", pady=5, padx=5)
         ttk.Label(form_frame, text="Precio:", style="Custom.TLabel").grid(row=4, column=0, sticky="w", pady=5, padx=5)
 
-        self.id_entry = ttk.Entry(form_frame, width=30)
-        self.titulo_entry = ttk.Entry(form_frame, width=30)
-        self.autor_entry = ttk.Entry(form_frame, width=30)
-        self.stock_entry = ttk.Entry(form_frame, width=30)
-        self.precio_entry = ttk.Entry(form_frame, width=30)
+        self.id_entrada = ttk.Entry(form_frame, width=30)
+        self.titulo_entrada = ttk.Entry(form_frame, width=30)
+        self.autor_entrada = ttk.Entry(form_frame, width=30)
+        self.stock_entrada = ttk.Entry(form_frame, width=30)
+        self.precio_entrada = ttk.Entry(form_frame, width=30)
 
-        self.id_entry.grid(row=0, column=1, pady=5, padx=5)
-        self.titulo_entry.grid(row=1, column=1, pady=5, padx=5)
-        self.autor_entry.grid(row=2, column=1, pady=5, padx=5)
-        self.stock_entry.grid(row=3, column=1, pady=5, padx=5)
-        self.precio_entry.grid(row=4, column=1, pady=5, padx=5)
+        self.id_entrada.grid(row=0, column=1, pady=5, padx=5)
+        self.titulo_entrada.grid(row=1, column=1, pady=5, padx=5)
+        self.autor_entrada.grid(row=2, column=1, pady=5, padx=5)
+        self.stock_entrada.grid(row=3, column=1, pady=5, padx=5)
+        self.precio_entrada.grid(row=4, column=1, pady=5, padx=5)
 
         button_frame = ttk.Frame(self.root, padding=(20, 10))
         button_frame.pack(fill="x", pady=10)
@@ -69,11 +69,11 @@ class LibreriaGUI:
 
     def insertar_libro(self):
         try:
-            id_libro = int(self.id_entry.get())
-            titulo = self.titulo_entry.get()
-            autor = self.autor_entry.get()
-            stock = int(self.stock_entry.get())
-            precio = float(self.precio_entry.get())
+            id_libro = int(self.id_entrada.get())
+            titulo = self.titulo_entrada.get()
+            autor = self.autor_entrada.get()
+            stock = int(self.stock_entrada.get())
+            precio = float(self.precio_entrada.get())
 
             libro = Libro(id_libro, titulo, autor, stock, precio)
 
@@ -89,7 +89,7 @@ class LibreriaGUI:
 
     def vender_libro(self):
         try:
-            id_libro = int(self.id_entry.get())
+            id_libro = int(self.id_entrada.get())
             libro_encontrado = self.abb.buscar(Libro(id_libro, "", "", 0, 0))
 
             if not libro_encontrado:
@@ -119,7 +119,7 @@ class LibreriaGUI:
 
     def agregar_stock(self):
         try:
-            id_libro = int(self.id_entry.get())
+            id_libro = int(self.id_entrada.get())
             libro_encontrado = self.abb.buscar(Libro(id_libro, "", "", 0, 0))
 
             if not libro_encontrado:
@@ -146,7 +146,7 @@ class LibreriaGUI:
 
     def consultar_libro(self):
         try:
-            id_libro = int(self.id_entry.get())
+            id_libro = int(self.id_entrada.get())
             libro_encontrado = self.abb.buscar(Libro(id_libro, "", "", 0, 0))
 
             if libro_encontrado:
@@ -158,7 +158,7 @@ class LibreriaGUI:
 
     def eliminar_libro(self):
         try:
-            id_libro = int(self.id_entry.get())
+            id_libro = int(self.id_entrada.get())
             libro_encontrado = self.abb.buscar(Libro(id_libro, "", "", 0, 0))
 
             if not libro_encontrado:
@@ -189,11 +189,11 @@ class LibreriaGUI:
         self.output.config(state=tk.DISABLED)
 
     def limpiar_campos(self):
-        self.id_entry.delete(0, tk.END)
-        self.titulo_entry.delete(0, tk.END)
-        self.autor_entry.delete(0, tk.END)
-        self.stock_entry.delete(0, tk.END)
-        self.precio_entry.delete(0, tk.END)
+        self.id_entrada.delete(0, tk.END)
+        self.titulo_entrada.delete(0, tk.END)
+        self.autor_entrada.delete(0, tk.END)
+        self.stock_entrada.delete(0, tk.END)
+        self.precio_entrada.delete(0, tk.END)
 
 def main():
     root = tk.Tk()
